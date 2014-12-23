@@ -29,7 +29,6 @@ jsonSchemaGenerator.prototype.generateSchema = function(){
 jsonSchemaGenerator.prototype.propertiesForeach = function(data,editorSchemaPart){
     for(var key in data)
     {
-        //console.log(editorSchemaPart[key]);
         if(editorSchemaPart[key])
         {
             if(editorSchemaPart[key].type == 'object')
