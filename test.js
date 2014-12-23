@@ -11,7 +11,7 @@ var testData = {
         book : ['Key' , 'MR. J', 'node.js'],
         food : ['baozi', 'noodle'],
         drink : ['tea'],
-        move : ['spider man']
+        movie : ['spider man']
     },
     website : 'http://cafa.me',
     phone : {
@@ -23,4 +23,9 @@ var testData = {
 var jsg = new JSG(testData);
 var jsg_schema = jsg.generateSchema();
 console.log(jsg_schema);
+
+var jsg_editorSchema = jsg.generateEditorSchema();
+console.log(jsg_editorSchema);
+console.log(jsg_editorSchema.properties.like.properties.movie);
+console.log(jsg_editorSchema.properties.like.properties.book);
 
