@@ -20,7 +20,7 @@ var testData = {
     }
 };
 
-var jsg = new JSG(testData);
+var jsg = new JSG(testData,"moreii");
 var jsg_schema = jsg.generateSchema();
 console.log(jsg_schema);
 
@@ -29,3 +29,4 @@ console.log(jsg_editorSchema);
 console.log(jsg_editorSchema.properties.like.properties.movie);
 console.log(jsg_editorSchema.properties.like.properties.book);
 
+console.log(JSON.stringify(jsg_editorSchema));

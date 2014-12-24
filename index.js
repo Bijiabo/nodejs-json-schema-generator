@@ -6,10 +6,19 @@ var AST = require('./lib/ast'),
     utils = require('./lib/utils'),
     COMPILER = require('./lib/compiler');
 
-var jsonSchemaGenerator = function(json){
+var jsonSchemaGenerator = function(json,title){
     if(!this instanceof  jsonSchemaGenerator)
     {
         return new jsonSchemaGenerator(json);
+    }
+
+    if(utils.isString(title))
+    {
+        this.title = title;
+    }
+    else
+    {
+        this.title = "";
     }
 
     this.json = json;
@@ -19,7 +28,7 @@ jsonSchemaGenerator.prototype.generateSchema = function(){
     var ast = new AST();
     ast.build(this.json);
 
-    var compiler = new COMPILER();
+    var compiler = new COMPILER(this.title);
     compiler.compile(ast.tree);
     this.schema = compiler.schema;
     this.editorSchema = this.schema;
